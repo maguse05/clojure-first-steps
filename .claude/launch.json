@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "clojure-meetups",
+      "runtimeExecutable": "clojure",
+      "runtimeArgs": ["-M:run"],
+      "port": 8080
+    }
+  ]
+}
