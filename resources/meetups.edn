@@ -1,0 +1,79 @@
+;; The list of meetups shown on the website.
+;;
+;; To add a meetup, add a map to the vector below. Every meetup needs a unique
+;; :slug — it becomes the page URL, e.g. /meetups/clojure-sao-paulo.
+;;
+;; :next-date and :venue are optional: leave them out (or set them to nil)
+;; when the next event isn't scheduled yet, and the page will show "TBA".
+;;
+;; NOTE: the entries below are sample data to get the site going. Replace them
+;; with real, verified details before publishing.
+
+[{:slug        "clojure-sao-paulo"
+  :name        "Clojure São Paulo 2"
+  :next-date   "2026-12-03T19:00"
+  :frequency   "Monthly — first Thursday"
+  :organizer   "Clojure SP community"
+  :country     "Brazil"
+  :city        "São Paulo"
+  :venue       {:name    "Sample venue"
+                :address "Av. Paulista, 1000 — Bela Vista, São Paulo"}
+  :lat         -23.5614
+  :lng         -46.6559
+  :description "Talks, lightning demos and pizza for anyone curious about Clojure, from first-timers to seasoned Lispers. Talks are in Portuguese or English."
+  :links       [{:label "Meetup.com" :url "https://www.meetup.com/"}]}
+
+ {:slug        "london-clojurians"
+  :name        "London Clojurians"
+  :next-date   "2026-11-25T18:30"
+  :frequency   "Monthly"
+  :organizer   "London Clojurians organizers"
+  :country     "United Kingdom"
+  :city        "London"
+  :venue       {:name    "Online & in person"
+                :address "Central London (venue announced per event)"}
+  :lat         51.5074
+  :lng         -0.1278
+  :description "One of the longest-running Clojure groups in Europe. Expect a mix of talks, hack nights and remote sessions with speakers from around the world."
+  :links       [{:label "Meetup.com" :url "https://www.meetup.com/"}]}
+
+ {:slug        "clojure-nyc"
+  :name        "Clojure NYC"
+  :next-date   nil
+  :frequency   "Every other month"
+  :organizer   "Clojure NYC organizers"
+  :country     "United States"
+  :city        "New York, NY"
+  :venue       nil
+  :lat         40.7128
+  :lng         -74.0060
+  :description "Clojure and ClojureScript practitioners in New York meeting for talks, code walkthroughs and conversation."
+  :links       [{:label "Meetup.com" :url "https://www.meetup.com/"}]}
+
+ {:slug        "clojure-berlin"
+  :name        "Clojure Berlin"
+  :next-date   "2026-12-10T19:00"
+  :frequency   "Monthly — second Wednesday"
+  :organizer   "Clojure Berlin organizers"
+  :country     "Germany"
+  :city        "Berlin"
+  :venue       {:name    "Sample venue"
+                :address "Kreuzberg, Berlin"}
+  :lat         52.4990
+  :lng         13.4030
+  :description "A friendly evening of Clojure talks and open discussion. Newcomers are very welcome."
+  :links       [{:label "Meetup.com" :url "https://www.meetup.com/"}]}
+
+ {:slug        "clojure-sydney"
+  :name        "Clojure Sydney"
+  :next-date   "2026-11-19T18:00"
+  :frequency   "Quarterly"
+  :organizer   "Clojure Sydney organizers"
+  :country     "Australia"
+  :city        "Sydney, NSW"
+  :venue       {:name    "Sample venue"
+                :address "Sydney CBD"}
+  :lat         -33.8688
+  :lng         151.2093
+  :description "Clojure folks in Sydney getting together for talks, show-and-tell and drinks afterwards."
+  :links       [{:label "Meetup.com" :url "https://www.meetup.com/"}]}]
