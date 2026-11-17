@@ -1,42 +1,47 @@
 # Clojure Meetups
 
-A website listing Clojure meetups around the world: a homepage with a map and list
-of meetups, a page per meetup, and a footer linking to the community.
+Map and directory of Clojure meetups, plus the application form for the
+Clojure Meetup Pilot Program.
 
-Built with [http-kit](https://github.com/http-kit/http-kit) and [Hiccup](https://github.com/weavejester/hiccup), pre-wired to deploy to Vercel.
+Ring app on [http-kit](https://github.com/http-kit/http-kit), routed with
+[reitit](https://github.com/metosin/reitit) and rendered with
+[Hiccup](https://github.com/weavejester/hiccup). The map uses
+[Leaflet](https://leafletjs.com) and OpenStreetMap tiles.
 
-## Where things live
+## Running it
 
-| File | What it does |
+```sh
+clojure -M:run
+```
+
+Then open http://localhost:8080 (`PORT=3000 clojure -M:run` for another port).
+
+From a REPL:
+
+```clojure
+(require 'app.core)
+(app.core/start! {:port 8080})
+(app.core/stop!)
+```
+
+## Layout
+
+| Path | |
 | --- | --- |
-| `resources/meetups.edn` | The meetup data. Add or edit meetups here. |
-| `src/app/views.clj` | The HTML pages (homepage, meetup page, footer), written in Hiccup. |
-| `src/app/core.clj` | The web server: routes, form handling. |
-| `resources/public/style.css` | All the styling. |
+| `resources/meetups.edn` | Meetup data. Re-read on every request, no restart needed. |
+| `src/app/routes.clj` | Routes and handlers. |
+| `src/app/application.clj` | Application form fields and validation, as data. |
+| `src/app/countries.clj` | Country names and matching for the country filter. |
+| `src/app/views/` | Hiccup views: layout, home, meetup page, map, form. |
+| `resources/public/js/` | Map interactions, country filter, conditional form fields. |
+| `resources/public/style.css` | Styles, following clojure.org's palette. |
 
-> The newsletter sign-ups and "Add your meetup" submissions are only kept in memory
-> (they're lost on restart). Connect them to a real service before going live.
+Applications and newsletter sign-ups live in atoms (`app.db`) for now, so
+they're gone after a restart.
 
-## Why this exists
+## Deploying
 
-Clojure is a joy to write, but going from `hello world` to a URL you can share is where a lot of beginners get stuck.
-
-This template exists to remove that friction. Click "Use this template", run a few commands, and you have a live production URL.
-From there you can spend your time learning Clojure instead of fighting deployment.
-
-## Quick start
-
-1. Click **Use this template** above (or `git clone` this repo).
-2. Run it locally:
-
-   ```sh
-   clojure -M:run
-   ```
-
-   Open http://localhost:8080 (set `PORT` to use something else, e.g. `PORT=3000 clojure -M:run`).
-3. Ship it:
-
-   ```sh
-   npm i -g vercel
-   vercel deploy
-   ```
+```sh
+npm i -g vercel
+vercel deploy
+```
