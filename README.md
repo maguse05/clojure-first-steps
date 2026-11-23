@@ -52,6 +52,8 @@ only exports public fields, plus:
 
 - the URLs in "Generic Meetup Link" (`TBC` or blank means no link yet),
 - the next meetup date from the organizer's latest Post-Event Report,
+- past meetups: date, title, recording and blog post from each report, plus
+  the photos and links in the meetup's Drive folder,
 - coordinates for the map, from the city and country.
 
 Names come from "Final Meetup name"; while it's `TBC` or blank, the meetup
@@ -59,6 +61,16 @@ shows up as "<city> Meetup". `resources/meetups.edn` adds what a form answer
 can't give: a tidy city, coordinates, a description, venue and event details.
 Entries are matched to the sheet on `:applied-at`, the application's
 timestamp.
+
+## Past meetups
+
+The past meetups folder in Drive has a folder per meetup, named like the
+meetup, and in it a folder per date (`Nov 24, 2026` or `2026-11-24`) with the
+photos. A Google Doc in a date's folder adds its links, one per line, like
+`Slides: https://...`; YouTube links are embedded. The script resizes new
+photos to 1600px and commits them to `resources/public/photos`, so the Drive
+folder can stay private. Folder names that match no approved meetup show up
+as warnings in the script's executions.
 
 The same script takes the applications sent from the site's form and adds
 them to the responses sheet, so the Google Form can stay closed, and emails
@@ -70,12 +82,21 @@ write on this repository only) and run `setUp` once. Then deploy it as a web
 app, executed as you and accessible by anyone, and set `APPLICATIONS_URL` and
 `APPLICATIONS_SECRET` on Vercel.
 
+## Cities
+
+The application form suggests the cities of the chosen country, from
+`resources/public/cities/<country code>.json`. They're built from
+[GeoNames](https://www.geonames.org) (CC BY 4.0), every place of 1000 people
+or more; `dev/cities.clj` says how to rebuild them.
+
 ## Layout
 
 | Path | |
 | --- | --- |
 | `resources/meetups-sheet.json` | Approved meetups, written by the Apps Script. Don't edit by hand. |
 | `resources/meetups.edn` | Curated meetup details. Re-read on every request, no restart needed. |
+| `resources/public/photos/` | Past meetup photos, written by the Apps Script. |
+| `resources/public/cities/` | City suggestions per country, from GeoNames. |
 | `src/app/meetups.clj` | Merges the two into what the site lists. |
 | `src/app/routes.clj` | Routes and handlers. |
 | `src/app/application.clj` | Application form fields and validation, as data. |

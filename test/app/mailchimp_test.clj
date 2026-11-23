@@ -38,6 +38,8 @@
       (let [[{:keys [method url body basic-auth]}] @requests]
         (is (= :post method))
         (is (= "https://us21.api.mailchimp.com/3.0/lists/a1b2c3/members" url))
+        (is (= {:skip_merge_validation true} (:query-params (first @requests)))
+            "the audience's required merge fields don't block a sign-up")
         (is (= "0123456789abcdef-us21" (second basic-auth)))
         (is (= {"email_address" "ana@example.com"
                 "status"        "pending"
@@ -68,6 +70,7 @@
           (is (= "https://us21.api.mailchimp.com/3.0/lists/a1b2c3/members/cdb9d6a1dddc375a09cc83e3001598dc"
                  (:url upsert))
               "MD5 of the lower-cased email")
+          (is (= {:skip_merge_validation true} (:query-params upsert)))
           (is (= {"email_address" "Ana@Example.com"
                   "status_if_new" "transactional"
                   "merge_fields"  {"FNAME" "Ana" "LNAME" "Maria Silva"}}

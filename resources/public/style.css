@@ -287,6 +287,20 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--h1); outlin
 .meetup-layout section + section { margin-top: 32px; }
 .description { font: italic 18px/1.6 "PT Serif", serif; margin: 0; }
 .links { padding-left: 1.2em; margin: 0; }
+.past-meetup + .past-meetup { margin-top: 28px; }
+.past-meetup__title { margin: 0 0 12px; font-size: 18px; color: var(--h2); }
+.past-meetup__name { display: block; font-size: 15px; font-weight: 400; color: var(--text); }
+.past-meetup > * + * { margin-top: 12px; }
+.photo-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.photo-grid a { display: block; }
+.photo-grid img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--radius); background: var(--bg-alt);
+}
+.video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius); }
 .meetup-layout aside.card { background: var(--bg-alt); border-color: var(--border); }
 .details { margin: 0; display: grid; gap: 16px; }
 .detail dt {

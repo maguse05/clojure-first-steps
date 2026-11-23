@@ -78,4 +78,5 @@
    (apply-section application flash)
    [:datalist#countries
     (for [c countries/names]
-      [:option {:value c}])]))
+      [:option {:value c :data-code (countries/code c)}])]
+   [:datalist#cities]))

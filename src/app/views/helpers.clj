@@ -46,6 +46,17 @@
 (def ^:private time-format
   (DateTimeFormatter/ofPattern "HH:mm z" Locale/ENGLISH))
 
+(def ^:private day-format
+  (DateTimeFormatter/ofPattern "d MMMM yyyy" Locale/ENGLISH))
+
+(defn day
+  "A plain `yyyy-MM-dd` date, as \"3 November 2026\"."
+  [date]
+  (.format (LocalDate/parse date) day-format))
+
+(defn youtube-id [url]
+  (second (re-find #"(?:youtube\.com/(?:watch\?(?:.*&)?v=|live/|embed/|shorts/)|youtu\.be/)([\w-]{11})" (str url))))
+
 (defn event-date [{:keys [^ZonedDateTime starts-at time]} style]
   (cond-> (.format starts-at ^DateTimeFormatter (date-formats style))
     (and time (= :long style)) (str " · " (.format starts-at time-format))))

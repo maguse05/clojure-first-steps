@@ -13,6 +13,8 @@
   (application/parse {"full-name"      "Ana Silva"
                       "email"          "ana@example.com"
                       "meetup-name"    "Clojure Lima"
+                      "city"           "Lima"
+                      "area"           "Miraflores"
                       "channels"       ["Clojurians Slack channel" "Other"]
                       "channels-other" "WhatsApp group"
                       "experience"     "3"
@@ -30,13 +32,16 @@
            (answers "Which communication channels do you plan to use for ongoing communication with meetup members (beyond promotion)?")))
     (is (= (str (first application/commitments) ", " (second application/commitments))
            (answers "Commitment and Acknowledgment")))
+    (is (= "Lima (Miraflores)" (answers "Where do you plan to hold the meetup?")))
+    (is (= "Lima" (get (sheet/answers (dissoc values :area)) "Where do you plan to hold the meetup?"))
+        "without an area, just the city")
     (is (not (contains? answers "Discord user")) "blank answers are left out")
     (is (every? (set (vals sheet/columns)) (keys answers)))))
 
 (deftest every-field-has-a-column
   (is (= (set (map :id application/fields))
-         (conj (set (keys sheet/columns)) :channels-other))
-      ":channels-other goes into the channels column"))
+         (-> (set (keys sheet/columns)) (disj :location) (conj :channels-other :city :area)))
+      ":channels-other goes into the channels column, city and area into the location one"))
 
 (deftest append-test
   (testing "the redirect Apps Script answers with is followed with a GET"
