@@ -362,8 +362,12 @@ function resized(file) {
     console.warn(`Drive has no preview of "${file.getName()}" yet, trying again next run`);
     return null;
   }
-  const image = UrlFetchApp.fetch(thumbnailLink.replace(/=s\d+$/, `=s${PHOTO_SIZE}`), { headers, muteHttpExceptions: true });
-  return image.getResponseCode() === 200 ? image.getBlob() : null;
+  // -rj asks for a JPEG, a screenshot as PNG would weigh megabytes.
+  for (const size of [`=s${PHOTO_SIZE}-rj`, `=s${PHOTO_SIZE}`]) {
+    const image = UrlFetchApp.fetch(thumbnailLink.replace(/=s\d+$/, size), { headers, muteHttpExceptions: true });
+    if (image.getResponseCode() === 200) return image.getBlob();
+  }
+  return null;
 }
 
 /**
