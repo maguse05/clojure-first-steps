@@ -37,6 +37,14 @@
 (defn canonical [s]
   (by-normalized-name (normalize s)))
 
+(def ^:private codes
+  (into {} (map (juxt display-name identity)) (Locale/getISOCountries)))
+
+(defn code
+  "The two-letter ISO code of a country, by name or alias."
+  [s]
+  (codes (canonical s)))
+
 (defn by-code
   "The country for a two-letter ISO code, like `BR`."
   [s]

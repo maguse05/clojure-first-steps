@@ -11,6 +11,13 @@
     "Perú"           "Peru"
     "Narnia"         nil))
 
+(deftest code-test
+  (are [input expected] (= expected (countries/code input))
+    "Brazil"         "BR"
+    "brasil"         "BR"
+    "United Kingdom" "GB"
+    "Narnia"         nil))
+
 (deftest matches-test
   (is (countries/matches? "" "Brazil"))
   (is (countries/matches? nil "Brazil"))

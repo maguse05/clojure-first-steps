@@ -190,7 +190,9 @@
 
   applyLink.addEventListener('click', () => {
     const field = document.querySelector('#apply [name="country"]');
-    if (field) field.value = applyLink.dataset.applyCountry;
+    if (!field) return;
+    field.value = applyLink.dataset.applyCountry;
+    field.dispatchEvent(new Event('change', { bubbles: true }));
   });
 
   if (input.value) filter(input.value, { animate: false });

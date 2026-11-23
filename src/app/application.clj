@@ -30,8 +30,10 @@
 
    {:title  "Your meetup"
     :fields [{:id :meetup-name :label "Name of the Clojure meetup" :required? true}
-             {:id :country :label "Country" :required? true :datalist "countries"}
-             {:id :location :label "Where do you plan to hold the meetup?" :hint "City and country" :required? true}
+             {:id :country :label "Meetup country" :required? true :datalist "countries"}
+             {:id :city :label "Meetup city" :required? true :datalist "cities" :autocomplete "off"
+              :hint "Choose the country first to see its cities. If yours isn't listed, type it in."}
+             {:id :area :label "Meetup area" :hint "Neighborhood, campus or venue, if you know it already"}
              {:id :format :label "Meetup format" :type :radio :options ["In-person" "Hybrid" "Online"] :required? true}
              {:id :frequency :label "How frequently do you plan to hold the meetup?" :type :select
               :options frequency-options :required? true}

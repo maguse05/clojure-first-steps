@@ -18,7 +18,10 @@
    "lu.ma"       "Luma"
    "heylo.com"   "Heylo"
    "discord.com" "Discord"
-   "discord.gg"  "Discord"})
+   "discord.gg"  "Discord"
+   "youtube.com" "YouTube"
+   "youtu.be"    "YouTube"
+   "github.com"  "GitHub"})
 
 (defn slugify [s]
   (-> (countries/normalize s)
@@ -31,16 +34,27 @@
     {:label (link-labels host (or host url))
      :url   url}))
 
+(defn- past-meetup
+  "A link keeps the title it was given in Drive or the report, if any."
+  [{:keys [date title photos links]}]
+  {:date   date
+   :title  title
+   :photos (vec photos)
+   :links  (mapv (fn [{:keys [title url]}]
+                   (cond-> (link url) title (assoc :label title)))
+                 links)})
+
 (defn- from-sheet
-  [{:keys [id name organizer country city format frequency links next-meetup lat lng]}]
-  (cond-> {:applied-at id
-           :name       name
-           :organizer  organizer
-           :country    (or (countries/canonical country) (countries/by-code country) country)
-           :city       city
-           :format     (formats (str/lower-case (str format)) :in-person)
-           :frequency  frequency
-           :links      (mapv link links)}
+  [{:keys [id name organizer country city format frequency links next-meetup past-meetups lat lng]}]
+  (cond-> {:applied-at   id
+           :name         name
+           :organizer    organizer
+           :country      (or (countries/canonical country) (countries/by-code country) country)
+           :city         city
+           :format       (formats (str/lower-case (str format)) :in-person)
+           :frequency    frequency
+           :links        (mapv link links)
+           :past-meetups (mapv past-meetup past-meetups)}
     next-meetup (assoc :next-event {:date next-meetup})
     lat         (assoc :lat lat :lng lng)))
 

@@ -24,6 +24,30 @@
     (list [:strong name]
           (when address [:span.detail__extra address]))))
 
+(defn- past-meetup [{:keys [date title photos links]}]
+  (let [videos  (filter (comp helpers/youtube-id :url) links)
+        others  (remove (comp helpers/youtube-id :url) links)
+        caption (or title (helpers/day date))]
+    [:article.past-meetup
+     [:h3.past-meetup__title
+      [:time {:datetime date} (helpers/day date)]
+      (when title [:span.past-meetup__name title])]
+     (when (seq photos)
+       [:ul.photo-grid
+        (for [src photos]
+          [:li [:a {:href src :target "_blank"}
+                [:img {:src src :alt (str "Photo from " caption) :loading "lazy"}]]])])
+     (for [{:keys [label url]} videos]
+       [:div.video
+        [:iframe {:src     (str "https://www.youtube-nocookie.com/embed/" (helpers/youtube-id url))
+                  :title   label
+                  :loading "lazy"
+                  :allow   "encrypted-media; picture-in-picture; fullscreen"}]])
+     (when (seq others)
+       [:ul.links
+        (for [{:keys [label url]} others]
+          [:li [:a {:href url :target "_blank" :rel "noopener"} label " ↗"]])])]))
+
 (defn page [meetup opts]
   (let [event (helpers/upcoming-event meetup)]
     (layout/page
@@ -49,7 +73,11 @@
             [:h2 "Links"]
             [:ul.links
              (for [{:keys [label url]} links]
-               [:li [:a {:href url :target "_blank" :rel "noopener"} label " ↗"]])]])]
+               [:li [:a {:href url :target "_blank" :rel "noopener"} label " ↗"]])]])
+         (when-let [past (seq (:past-meetups meetup))]
+           [:section
+            [:h2 "Past meetups"]
+            (map past-meetup past)])]
         [:aside.card
          [:dl.details
           (detail "Next date" (next-event event))

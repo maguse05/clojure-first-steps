@@ -8,7 +8,7 @@
    "nubank-employee" "No"
    "meetup-name"     "Clojure Lima"
    "country"         "Peru"
-   "location"        "Lima, Peru"
+   "city"            "Lima"
    "format"          "Hybrid"
    "frequency"       "Monthly"
    "description"     "Talks and coding sessions"

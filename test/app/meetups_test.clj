@@ -34,6 +34,22 @@
       (is (= [] (:links m)))
       (is (nil? (:next-event m)))))
 
+  (testing "past meetups"
+    (let [past {:date   "2026-11-03"
+                :title  "Clojure Hangout #4"
+                :photos ["/photos/abc.jpg"]
+                :links  [{:title "Recording" :url "https://youtu.be/dQw4w9WgXcQ"}
+                         {:title nil :url "https://github.com/clj-cnx/hangout"}]}
+          [m]  (listed [(assoc row :past-meetups [past])] [])]
+      (is (= [{:date   "2026-11-03"
+               :title  "Clojure Hangout #4"
+               :photos ["/photos/abc.jpg"]
+               :links  [{:label "Recording" :url "https://youtu.be/dQw4w9WgXcQ"}
+                        {:label "GitHub" :url "https://github.com/clj-cnx/hangout"}]}]
+             (:past-meetups m))
+          "a link without a title is labeled by its site")
+      (is (= [] (:past-meetups (first (listed [row] [])))))))
+
   (testing "sheet values are tidied up"
     (let [[m] (listed [(assoc row :country "BR" :format "Remote" :lat nil :lng nil)] [])]
       (is (= "Brazil" (:country m)))

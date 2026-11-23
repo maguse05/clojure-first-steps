@@ -7,7 +7,9 @@
             [org.httpkit.client :as http]))
 
 (def columns
-  "Form field -> header of its column in the spreadsheet."
+  "Form field -> header of its column in the spreadsheet. The web app also
+  takes the start of a header, so the location goes to \"Where do you plan to
+  hold the meetup? (City and area)\" whatever the parentheses say."
   {:full-name           "Full Name"
    :email               "Email address"
    :nubank-employee     "Nubank employee?"
@@ -19,7 +21,7 @@
    :frequency-other     "If 'Other' in the previous question, please specify your planned frequency."
    :format              "Meetup format"
    :country             "Country"
-   :location            "Where do you plan to hold the meetup? (City and country)"
+   :location            "Where do you plan to hold the meetup?"
    :expected-attendance "How many people do you anticipate attending a typical meetup?"
    :description         "Briefly describe your proposed meetup format (e.g., talks, workshops, coding sessions)."
    :promotion           "How and where do you plan to promote the meetup locally to attract new members?"
@@ -39,11 +41,19 @@
      (when-not (some str/blank? [url secret])
        {:url url :secret secret}))))
 
+(defn- location [{:keys [city area]}]
+  (if (str/blank? area)
+    city
+    (str city " (" area ")")))
+
 (defn answers
   "The application as headers -> cell values. Like Google Forms, checkboxes
-  are joined with commas and the text typed for \"Other\" takes its place."
+  are joined with commas and the text typed for \"Other\" takes its place.
+  City and area share a column, as \"City (area)\"."
   [{:keys [channels channels-other] :as values}]
-  (let [values (assoc values :channels (replace {"Other" channels-other} channels))]
+  (let [values (assoc values
+                      :channels (replace {"Other" channels-other} channels)
+                      :location (location values))]
     (into {}
           (for [[field header] columns
                 :let [v (get values field)
