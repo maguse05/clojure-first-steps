@@ -24,11 +24,59 @@ From a REPL:
 (app.core/stop!)
 ```
 
+Tests:
+
+```sh
+clojure -X:test
+```
+
+## Configuration
+
+| Variable | |
+| --- | --- |
+| `MAILCHIMP_API_KEY` | Mailchimp API key, e.g. `abc123-us21`. |
+| `MAILCHIMP_AUDIENCE_ID` | ID of the audience newsletter sign-ups go to. |
+| `APPLICATIONS_URL` | URL of the Apps Script web app that adds applications to the spreadsheet. |
+| `APPLICATIONS_SECRET` | Shared with the web app, logged by its `setUp`. |
+
+Without them, sign-ups and applications are only kept in memory. On Vercel
+they go under Project → Settings → Environment Variables.
+
+## Meetups
+
+The applications spreadsheet decides which meetups are listed: a meetup shows
+up once its "Sponsorship Setup?" cell says Yes. Every hour,
+[`apps-script/sync-meetups.gs`](apps-script/sync-meetups.gs) commits the
+approved ones to `resources/meetups-sheet.json`, which redeploys the site. It
+only exports public fields, plus:
+
+- the URLs in "Generic Meetup Link" (`TBC` or blank means no link yet),
+- the next meetup date from the organizer's latest Post-Event Report,
+- coordinates for the map, from the city and country.
+
+Names come from "Final Meetup name"; while it's `TBC` or blank, the meetup
+shows up as "<city> Meetup". `resources/meetups.edn` adds what a form answer
+can't give: a tidy city, coordinates, a description, venue and event details.
+Entries are matched to the sheet on `:applied-at`, the application's
+timestamp.
+
+The same script takes the applications sent from the site's form and adds
+them to the responses sheet, so the Google Form can stay closed, and emails
+the team about each one.
+
+To set it up, open the spreadsheet, Extensions → Apps Script, paste the file,
+add a `GITHUB_TOKEN` script property (fine-grained token, Contents read and
+write on this repository only) and run `setUp` once. Then deploy it as a web
+app, executed as you and accessible by anyone, and set `APPLICATIONS_URL` and
+`APPLICATIONS_SECRET` on Vercel.
+
 ## Layout
 
 | Path | |
 | --- | --- |
-| `resources/meetups.edn` | Meetup data. Re-read on every request, no restart needed. |
+| `resources/meetups-sheet.json` | Approved meetups, written by the Apps Script. Don't edit by hand. |
+| `resources/meetups.edn` | Curated meetup details. Re-read on every request, no restart needed. |
+| `src/app/meetups.clj` | Merges the two into what the site lists. |
 | `src/app/routes.clj` | Routes and handlers. |
 | `src/app/application.clj` | Application form fields and validation, as data. |
 | `src/app/countries.clj` | Country names and matching for the country filter. |
@@ -36,8 +84,10 @@ From a REPL:
 | `resources/public/js/` | Map interactions, country filter, conditional form fields. |
 | `resources/public/style.css` | Styles, following clojure.org's palette. |
 
-Applications and newsletter sign-ups live in atoms (`app.db`) for now, so
-they're gone after a restart.
+Newsletter sign-ups go to Mailchimp (`app.mailchimp`) as pending, tagged
+"Clojure Meetups website". Applications go to the spreadsheet (`app.sheet`),
+and applicants to Mailchimp as transactional contacts, tagged "Meetup
+applicant".
 
 ## Deploying
 

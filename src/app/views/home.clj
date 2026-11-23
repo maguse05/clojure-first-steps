@@ -47,7 +47,7 @@
         "No meetups match “" [:span.empty-state__query query] "”."]
        [:p "Check the spelling, or pick a country from the list."]]]]))
 
-(defn- apply-section [{:keys [values errors]} flash]
+(defn- apply-section [{:keys [values errors failed?]} flash]
   [:section.section.apply {:id "apply"}
    [:div.container
     [:div.apply__intro
@@ -58,6 +58,7 @@
       "and a pin on this map."]]
     (form/application-form {:values     values
                             :errors     errors
+                            :failed?    failed?
                             :submitted? (= :applied flash)})]])
 
 (defn page [{:keys [meetups query application flash] :as opts}]

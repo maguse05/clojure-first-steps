@@ -1,5 +1,7 @@
 (ns app.core
-  (:require [app.routes :as routes]
+  (:require [app.mailchimp :as mailchimp]
+            [app.routes :as routes]
+            [app.sheet :as sheet]
             [org.httpkit.server :as http])
   (:gen-class))
 
@@ -16,6 +18,10 @@
   (println (str "Listening on http://localhost:" port)))
 
 (defn -main [& _]
+  (when-not (mailchimp/config)
+    (println "MAILCHIMP_API_KEY / MAILCHIMP_AUDIENCE_ID not set, newsletter sign-ups stay in memory"))
+  (when-not (sheet/config)
+    (println "APPLICATIONS_URL / APPLICATIONS_SECRET not set, applications stay in memory"))
   (start! {:port (parse-long (or (System/getenv "PORT") "8080"))}))
 
 (comment

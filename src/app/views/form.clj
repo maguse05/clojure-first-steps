@@ -80,11 +80,12 @@
      (input f (get values id) aria)
      (when error [:p.field__error {:id (dom-id id "-error")} error])]))
 
-(defn application-form [{:keys [values errors submitted?]}]
+(defn application-form [{:keys [values errors submitted? failed?]}]
   (let [autofocus (some (comp (set (keys errors)) :id) application/fields)]
     [:form.card.application-form {:method "post" :action "/apply#apply"}
      (cond
        submitted?    (layout/notice :success "Thanks for applying! We'll review your proposal and get back to you by email.")
+       failed?       [:p.notice.notice--error {:role "alert"} "We couldn't send your application just now. Your answers are still here, please try again in a few minutes."]
        (seq errors)  [:p.notice.notice--error {:role "alert"} "Some answers need another look, see the fields marked below."])
      (for [{:keys [title fields]} application/sections]
        [:fieldset.form-section
