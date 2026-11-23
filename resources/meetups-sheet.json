@@ -153,7 +153,9 @@
       "city": "Suburb/Light City/Different Locations around NJ as much as possible",
       "format": "In-person",
       "frequency": "Quarterly",
-      "links": [],
+      "links": [
+        "https://www.heylo.com/event/-P4eW8fYBX8fFxG5M63s?inviteId=4NrYkZED"
+      ],
       "next_meetup": null,
       "lat": 40.0583,
       "lng": -74.4057
@@ -166,7 +168,9 @@
       "city": "Sydney Australia",
       "format": "Hybrid",
       "frequency": "Monthly",
-      "links": [],
+      "links": [
+        "https://clj-aus.github.io/"
+      ],
       "next_meetup": null,
       "lat": -33.8623,
       "lng": 151.2077
