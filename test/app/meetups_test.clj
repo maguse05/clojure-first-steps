@@ -13,6 +13,7 @@
    :city        "Chiang Mai Thailand"
    :format      "In-person"
    :frequency   "Weekly"
+   :description "Coding sessions every week.\n\nBring a laptop."
    :links       ["https://www.meetup.com/clojure-chiang-mai/events/"]
    :next-meetup "2026-12-01"
    :lat         18.7883
@@ -26,7 +27,8 @@
     (is (= "clojure-chiang-mai" (:slug m)))
     (is (= :in-person (:format m)))
     (is (= [{:label "Meetup.com" :url "https://www.meetup.com/clojure-chiang-mai/events/"}] (:links m)))
-    (is (= {:date "2026-12-01"} (:next-event m))))
+    (is (= {:date "2026-12-01"} (:next-event m)))
+    (is (= "Coding sessions every week.\n\nBring a laptop." (:description m))))
 
   (testing "a TBC link, or none, still lists the meetup"
     (let [[m] (listed [(assoc row :links [] :next-meetup nil)] [])]
@@ -66,6 +68,9 @@
       (is (= "chiang-mai" (:slug m)))
       (is (= "Chiang Mai" (:city m)))
       (is (= "Clojure Chiang Mai" (:name m)) "the name comes from the sheet")
+      (is (= "Coding sessions every week.\n\nBring a laptop." (:description m)))
+      (is (nil? (:description (first (listed [(assoc row :description "")] [(assoc details :description "Ours")]))))
+          "only organizers write descriptions, an empty one stays empty")
       (is (= ["Meetup.com"] (map :label (:links m))) "and so do the links"))
 
     (testing "a TBC name becomes the city's meetup"

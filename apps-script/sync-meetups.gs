@@ -66,6 +66,7 @@ const APPLICATION_COLUMNS = {
   approved: 'Sponsorship Setup?',
   links: 'Generic Meetup Link',
   proposedName: 'Name of the Clojure Meetup?',
+  description: 'Website description',
 };
 
 const REPORT_COLUMNS = {
@@ -162,11 +163,12 @@ function doPost(e) {
 }
 
 function notifyTeam(answers) {
+  const name = clean(answers[APPLICATION_COLUMNS.proposedName]);
   MailApp.sendEmail({
     to: TEAM_EMAIL,
     name: 'Clojure Meetups website',
     replyTo: answers[APPLICATION_COLUMNS.email] || '',
-    subject: 'New Clojure meetup application',
+    subject: name ? `New Clojure meetup application: ${name}` : 'New Clojure meetup application',
     body: Object.entries(answers).map(([question, answer]) => `${question}\n${answer}`).join('\n\n') +
       `\n\n${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`,
   });
@@ -226,6 +228,7 @@ function toMeetup(row, reports, pastMeetups, zones) {
     city: clean(row.city),
     format: clean(row.format),
     frequency: clean(frequency),
+    description: paragraphs(row.description),
     links: row.links,
     next_meetup: nextMeetup,
     past_meetups: pastMeetups,
@@ -494,6 +497,15 @@ function urlsIn(value) {
 function words(name) {
   return clean(name).toLowerCase().normalize('NFD').replace(/\p{M}/gu, '')
     .split(/[^a-z]+/).filter(Boolean);
+}
+
+/** Text as the organizer wrote it, keeping blank lines between paragraphs. */
+function paragraphs(value) {
+  return String(value == null ? '' : value)
+    .split(/\n\s*\n/)
+    .map(clean)
+    .filter(Boolean)
+    .join('\n\n');
 }
 
 function clean(value) {
