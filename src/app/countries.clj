@@ -37,6 +37,13 @@
 (defn canonical [s]
   (by-normalized-name (normalize s)))
 
+(defn by-code
+  "The country for a two-letter ISO code, like `BR`."
+  [s]
+  (let [code (str/upper-case (str/trim (str s)))]
+    (when (some #{code} (Locale/getISOCountries))
+      (display-name code))))
+
 (defn matches?
   "An exact country (or alias) matches that country only, anything else is a
   substring match, so `us` doesn't bring up Australia and Belarus."

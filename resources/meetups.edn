@@ -1,13 +1,21 @@
-;; Meetups shown on the site.
+;; Details for the meetups in the applications sheet.
 ;;
-;; :slug        URL of the meetup page, /meetups/<slug>
+;; Which meetups are listed comes from the sheet (resources/meetups-sheet.json,
+;; written by apps-script/sync-meetups.gs). So do the names ("Final Meetup
+;; name") and the links ("Generic Meetup Link"). An entry here adds what the
+;; form doesn't have, or tidies it up, for the same application.
+;;
+;; :applied-at  timestamp of the application in the sheet, to match the row
+;; :slug        URL of the meetup page, /meetups/<slug>. Keep it once it's
+;;              published, links to the page depend on it.
 ;; :format      :in-person, :hybrid or :online
 ;; :next-event  optional. {:date "yyyy-MM-dd"} at minimum; add :time and
-;;              :time-zone (IANA name) to show a time. Past events are hidden.
+;;              :time-zone (IANA name) to show a time. Past events are hidden,
+;;              and a sooner date reported in the sheet wins.
 ;; :venue       the usual venue. A :venue on :next-event takes precedence.
 
-[{:slug        "clojure-mn"
-  :name        "Clojure.mn"
+[{:applied-at  "2026-08-03T16:54:06"
+  :slug        "clojure-mn"
   :format      :in-person
   :frequency   "Monthly"
   :organizer   "Joe Lane"
@@ -17,8 +25,8 @@
   :lng         -93.2650
   :description "Talks, coding sessions and learning through conversation. The group ran for six years before Covid and is getting back together as soon as it finds a new venue."}
 
- {:slug        "clojure-johannesburg"
-  :name        "Clojure Johannesburg"
+ {:applied-at  "2026-08-03T18:14:20"
+  :slug        "clojure-johannesburg"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Danie Roux"
@@ -28,8 +36,8 @@
   :lng         28.0473
   :description "Running since before Covid: talks, thinking katas, deep dives into Datomic, Pathom, Fulcro and spec, and zero-to-REPL sessions for newcomers."}
 
- {:slug        "clojure-luxembourg"
-  :name        "Clojure Luxembourg"
+ {:applied-at  "2026-08-03T18:39:08"
+  :slug        "clojure-luxembourg"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Tudor Stefanescu"
@@ -39,8 +47,8 @@
   :lng         6.1319
   :description "One technology from the Clojure universe each time, presented together with a hands-on project by someone from the local community. Now and then, with the people who make it."}
 
- {:slug        "bilbao-clojure"
-  :name        "Bilbao Clojure Meetup"
+ {:applied-at  "2026-08-04T15:05:26"
+  :slug        "bilbao-clojure"
   :format      :in-person
   :frequency   "Monthly"
   :organizer   "Gleb Zakharov"
@@ -48,10 +56,17 @@
   :city        "Bilbao"
   :lat         43.2630
   :lng         -2.9350
-  :description "Coding sessions, plus a book and papers club."}
+  :next-event  {:date      "2026-12-02"
+                :time      "19:00"
+                :time-zone "Europe/Madrid"
+                :title     "Clojure: Functional Lisp"
+                :url       "https://www.meetup.com/bilbao-programming-group/events/317525554"
+                :venue     {:name    "La Perrera Espazioa"
+                            :address "Sabino Arana Etorbidea 50, 48012 Bilbao"}}
+  :description "Coding sessions, plus a book and papers club. Part of the Bilbao Programming Group."}
 
- {:slug        "london-clojurians"
-  :name        "London Clojurians"
+ {:applied-at  "2026-08-10T16:35:54"
+  :slug        "london-clojurians"
   :format      :hybrid
   :frequency   "Bi-weekly"
   :organizer   "Bruno Bonacci"
@@ -61,8 +76,8 @@
   :lng         -0.1278
   :description "Over 4,000 members, more than 700 events and 100+ talks on YouTube. In-person meetups are usually coding sessions; online talks bring in speakers from all over the world."}
 
- {:slug        "blr-clojure"
-  :name        "Blr-Clojure"
+ {:applied-at  "2026-08-12T11:05:02"
+  :slug        "blr-clojure"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Shaikh Sabir Pasha"
@@ -72,8 +87,8 @@
   :lng         77.5946
   :description "Technical talks, hands-on workshops, live coding and open discussion about Clojure, ClojureScript, functional programming and running Clojure in production."}
 
- {:slug        "clojure-nashville"
-  :name        "Clojure/nashville"
+ {:applied-at  "2026-09-14T13:37:38"
+  :slug        "clojure-nashville"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Stewart Munoz"
@@ -83,8 +98,8 @@
   :lng         -86.7816
   :description "60 to 90 minutes on Clojure, ClojureScript and the wider Lisp ecosystem: a short talk, then hands-on coding, live demos and open discussion."}
 
- {:slug        "clojurehackers"
-  :name        "Clojurehackers"
+ {:applied-at  "2026-08-03T22:09:32"
+  :slug        "clojurehackers"
   :format      :in-person
   :frequency   "Bi-monthly"
   :organizer   "Filipe Welington Vargas de Andrade"
@@ -92,12 +107,12 @@
   :city        "Campinas, São Paulo"
   :lat         -22.8174
   :lng         -47.0690
-  :venue       {:name    "UNICAMP"
-                :address "Campinas, São Paulo"}
+  :venue       {:name    "UNICAMP, IC3, Lab 300"
+                :address "R. Saturnino de Brito 573, Cidade Universitária, Campinas, SP"}
   :description "A Clojure hackerspace in Campinas to share ideas about Clojure and functional programming. Saturday sessions of up to two and a half hours. The first one took place on October 31."}
 
- {:slug        "clojure-br"
-  :name        "Clojure BR"
+ {:applied-at  "2026-09-14T15:42:35"
+  :slug        "clojure-br"
   :format      :online
   :frequency   "Monthly"
   :organizer   "Arthur Fücher"
@@ -105,10 +120,17 @@
   :city        "Online"
   :lat         -23.5505
   :lng         -46.6333
+  :next-event  {:date      "2026-11-25"
+                :time      "19:00"
+                :time-zone "America/Sao_Paulo"
+                :title     "Clojure 101, the first Clojure study group meetup in Itupeva"
+                :url       "https://www.meetup.com/clojure-br/events/317330941"
+                :venue     {:name    "ACE Itupeva"
+                            :address "R. Hildebrando Ferraz 171, Jardim Primavera, Itupeva, SP"}}
   :description "Online talks for the Brazilian Clojure community. In-person editions in São Paulo and Campinas drew around 30 people, and they may come back."}
 
- {:slug        "warsaw-clojure"
-  :name        "Warsaw Clojure"
+ {:applied-at  "2026-08-21T11:30:59"
+  :slug        "clojure-warsaw"
   :format      :in-person
   :frequency   "Bi-monthly"
   :organizer   "Daniel Janus"
@@ -116,11 +138,10 @@
   :city        "Warsaw"
   :lat         52.2297
   :lng         21.0122
-  :next-event  {:date "2027-01-12"}
   :description "About an hour of talks followed by a couple of hours of socialising. The first edition, on November 3, brought together 18 people for two talks and an impromptu lightning talk."}
 
- {:slug        "clojure-chiang-mai"
-  :name        "Clojure Chiang Mai"
+ {:applied-at  "2026-08-29T12:48:33"
+  :slug        "clojure-chiang-mai"
   :format      :in-person
   :frequency   "Weekly"
   :organizer   "Fabian Merkle"
@@ -128,11 +149,10 @@
   :city        "Chiang Mai"
   :lat         18.7883
   :lng         98.9853
-  :description "Clojure Hangout: coding sessions, demos and tech discussions."
-  :links       [{:label "Meetup.com" :url "https://www.meetup.com/clojure-chiang-mai/"}]}
+  :description "Developer Hangout: coding sessions, demos and tech discussions over coffee."}
 
- {:slug        "bangkok-clojure"
-  :name        "Bangkok Clojure Community"
+ {:applied-at  "2026-09-02T16:56:14"
+  :slug        "clojurians-in-thailand"
   :format      :hybrid
   :frequency   "Bi-weekly"
   :organizer   "Edward Hughes"
@@ -140,11 +160,10 @@
   :city        "Bangkok"
   :lat         13.7563
   :lng         100.5018
-  :description "Small workshops and coding sessions to grow a community of local Clojure users, with guest speakers once the group finds its feet."
-  :links       [{:label "Clojurians in Thailand on Discord" :url "https://discord.com/invite/GSd42VbQdg"}]}
+  :description "Small workshops and coding sessions to grow a community of local Clojure users, with guest speakers once the group finds its feet."}
 
- {:slug        "prague-clojure"
-  :name        "Prague Clojure"
+ {:applied-at  "2026-09-10T15:19:38"
+  :slug        "prague-clojure"
   :format      :in-person
   :frequency   "Almost monthly, with a summer break"
   :organizer   "Adam Kalisz"
@@ -154,8 +173,8 @@
   :lng         14.4378
   :description "Talks and mastermind sessions. Also known as prgclj."}
 
- {:slug        "clojure-floripa"
-  :name        "Meetup Clojure Floripa"
+ {:applied-at  "2026-09-12T02:13:42"
+  :slug        "clojure-floripa"
   :format      :in-person
   :frequency   "Quarterly"
   :organizer   "Felipe Cortez de Sá"
@@ -165,8 +184,8 @@
   :lng         -48.5480
   :description "Two 30-minute talks, 20 minutes of discussion and a coffee break. The first two meetups are planned for January and April 2027."}
 
- {:slug        "santa-cruz-clojure"
-  :name        "Santa Cruz Clojure Meetup"
+ {:applied-at  "2026-08-03T19:26:27"
+  :slug        "santa-cruz-clojure"
   :format      :in-person
   :frequency   "Weekly"
   :organizer   "Arthur Ulfeldt"
@@ -176,8 +195,8 @@
   :lng         -122.0308
   :description "A weekly Clojure coffee hangout that has been running for more than ten years."}
 
- {:slug        "clojure-mexico-city"
-  :name        "Clojure Mexico City"
+ {:applied-at  "2026-08-18T20:32:25"
+  :slug        "clojure-mexico-city"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Kyle S Passarelli"
@@ -187,8 +206,8 @@
   :lng         -99.1332
   :description "Getting started with short intro talks at other local meetups, data and Scicloj sessions, and visits to computer science departments at local universities."}
 
- {:slug        "new-jersey-clojurians"
-  :name        "New Jersey Clojurians"
+ {:applied-at  "2026-08-25T19:02:57"
+  :slug        "new-jersey-clojurians"
   :format      :in-person
   :frequency   "Quarterly"
   :organizer   "Lorelai Lyons"
@@ -205,8 +224,8 @@
                             :address "373D Route 46W, Fairfield, NJ 07004"}}
   :description "Scicloj-style meetups where people share what they're working on, with one or two speakers and a Q&A. The first one starts with snacks and introductions, then an interactive 30-minute intro to Clojure at the REPL for people with little or no programming background. The gym offers discounted climbing afterwards. Future meetups will move around the state."}
 
- {:slug        "clj-aus"
-  :name        "clj-aus"
+ {:applied-at  "2026-08-26T08:13:15"
+  :slug        "clj-aus"
   :format      :hybrid
   :frequency   "Monthly"
   :organizer   "Burin Choomnuan"
@@ -220,5 +239,4 @@
                 :title     "clj-aus #2: Jolt since September, and Clojure on the Wii"
                 :url       "https://www.meetup.com/clojure-australia/events/317297998/"
                 :venue     {:name "Online"}}
-  :description "Australia's national Clojure meetup: an in-person session in Sydney, streamed to the rest of the country."
-  :links       [{:label "clj-aus.github.io" :url "https://clj-aus.github.io/"}]}]
+  :description "Australia's national Clojure meetup: an in-person session in Sydney, streamed to the rest of the country."}]

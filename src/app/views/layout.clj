@@ -40,8 +40,10 @@
    [:span.footer-card__title "Newsletter"]
    [:p "Get new meetups and events in your inbox. No spam."]
    (case flash
-     :subscribed    (notice :success "Thanks! You're on the list.")
-     :invalid-email (notice :error "That email doesn't look right, please try again.")
+     :subscribed         (notice :success "Almost there! Check your inbox to confirm your subscription.")
+     :already-subscribed (notice :success "You're already on the list. Thanks!")
+     :subscribe-failed   (notice :error "We couldn't sign you up right now, please try again later.")
+     :invalid-email      (notice :error "That email doesn't look right, please try again.")
      nil)
    [:form.newsletter {:method "post" :action "/subscribe"}
     [:input {:type "hidden" :name "back" :value uri}]

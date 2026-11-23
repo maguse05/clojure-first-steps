@@ -1,0 +1,154 @@
+{
+  "meetups": [
+    {
+      "id": "2026-08-04T15:05:26",
+      "name": "Clojure and Functional Programming meetup",
+      "organizer": "Gleb Zakharov",
+      "country": "Spain",
+      "city": "Bilbao, Spain",
+      "format": "In-person",
+      "frequency": "Monthly",
+      "links": [
+        "https://www.meetup.com/bilbao-programming-group/events/"
+      ],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-03T22:09:32",
+      "name": "Escrevendo Web Servers em Clojure",
+      "organizer": "Filipe Welington Vargas de Andrade",
+      "country": "BR",
+      "city": "UNICAMP, Campinas, Brazil",
+      "format": "In-person",
+      "frequency": "Bi-monthly",
+      "links": [
+        "https://www.meetup.com/pt-br/clojure-br/events/",
+        "https://clojurehackers.org/"
+      ],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-09-14T15:42:35",
+      "name": "Clojure 101",
+      "organizer": "Arthur Fücher",
+      "country": "Brazil",
+      "city": "Online for now (we can have in-person in São Paulo and/or Campinas in the future, but right now since I have a newborn I can't promise anything)",
+      "format": "Remote",
+      "frequency": "Monthly",
+      "links": [
+        "https://www.meetup.com/pt-br/clojure-br/events/",
+        "https://clojurehackers.org/"
+      ],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-21T11:30:59",
+      "name": "Clojure Warsaw",
+      "organizer": "Daniel Janus",
+      "country": "Poland",
+      "city": "Warsaw, Poland",
+      "format": "In-person",
+      "frequency": "Bi-monthly",
+      "links": [
+        "https://clojure-warsaw.github.io/"
+      ],
+      "next_meetup": "2027-01-12"
+    },
+    {
+      "id": "2026-08-29T12:48:33",
+      "name": "Clojure Hangout",
+      "organizer": "Fabian Merkle",
+      "country": "Thailand",
+      "city": "Chiang Mai Thailand",
+      "format": "In-person",
+      "frequency": "Weekly",
+      "links": [
+        "https://www.meetup.com/clojure-chiang-mai/events/"
+      ],
+      "next_meetup": "2026-12-01"
+    },
+    {
+      "id": "2026-09-02T16:56:14",
+      "name": "(clj-in-th)",
+      "organizer": "Edward Hughes",
+      "country": "Thailand",
+      "city": "Bangkok, Thailand",
+      "format": "Hybrid",
+      "frequency": "Bi-weekly",
+      "links": [
+        "https://clj-in-th.github.io"
+      ],
+      "next_meetup": "2026-11-27"
+    },
+    {
+      "id": "2026-09-10T15:19:38",
+      "name": "Prague Clojure or prgclj",
+      "organizer": "Adam Kalisz",
+      "country": "Czechia",
+      "city": "Prague, Czechia",
+      "format": "In-person",
+      "frequency": "Almost monthly, with a summer pause (1-2 months) and 1 meetup left out before Christmas",
+      "links": [],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-09-12T02:13:42",
+      "name": "Meetup Clojure Floripa",
+      "organizer": "Felipe Cortez de Sá",
+      "country": "Brazil",
+      "city": "Florianópolis, Brazil",
+      "format": "In-person",
+      "frequency": "Quarterly",
+      "links": [],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-03T19:26:27",
+      "name": "Santa Cruz Clojure Meetup",
+      "organizer": "Arthur Ulfeldt",
+      "country": "USA",
+      "city": "Santa Cruz CA",
+      "format": "In-person",
+      "frequency": "Weekly",
+      "links": [],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-18T20:32:25",
+      "name": "Clojure Mexico City",
+      "organizer": "Kyle S Passarelli",
+      "country": "Mexico",
+      "city": "Mexico City, Mexico",
+      "format": "Hybrid",
+      "frequency": "Monthly",
+      "links": [],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-25T19:02:57",
+      "name": "New Jersey Clojurians",
+      "organizer": "Lorelai Lyons",
+      "country": "USA",
+      "city": "Suburb/Light City/Different Locations around NJ as much as possible",
+      "format": "In-person",
+      "frequency": "Quarterly",
+      "links": [
+        "https://www.heylo.com/event/-P4eW8fYBX8fFxG5M63s?inviteId=4NrYkZED"
+      ],
+      "next_meetup": null
+    },
+    {
+      "id": "2026-08-26T08:13:15",
+      "name": "clj-aus",
+      "organizer": "Burin Choomnuan",
+      "country": "Australia",
+      "city": "Sydney Australia",
+      "format": "Hybrid",
+      "frequency": "Monthly",
+      "links": [
+        "https://clj-aus.github.io/"
+      ],
+      "next_meetup": null
+    }
+  ]
+}

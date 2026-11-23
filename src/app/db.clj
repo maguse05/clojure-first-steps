@@ -1,9 +1,19 @@
 (ns app.db
-  (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]))
+  (:require [app.meetups :as meetups]
+            [clojure.data.json :as json]
+            [clojure.edn :as edn]
+            [clojure.java.io :as io]
+            [clojure.string :as str]))
+
+(defn- read-resource [path read]
+  (some-> (io/resource path) slurp read))
+
+(defn- read-json [s]
+  (json/read-str s :key-fn #(keyword (str/replace % \_ \-))))
 
 (defn meetups []
-  (edn/read-string (slurp (io/resource "meetups.edn"))))
+  (meetups/listed (:meetups (read-resource "meetups-sheet.json" read-json))
+                  (read-resource "meetups.edn" edn/read-string)))
 
 (defn meetup [slug]
   (some #(when (= slug (:slug %)) %) (meetups)))

@@ -32,5 +32,5 @@
                    :aria-label (if single? "Meetup location" "Map of Clojure meetups")}]
     (when-not single? (legend))]
    [:script#meetup-data {:type "application/json"}
-    (h/raw (json/write-str {:meetups (map marker meetups)
+    (h/raw (json/write-str {:meetups (map marker (filter :lat meetups))
                             :aliases countries/aliases}))]))
