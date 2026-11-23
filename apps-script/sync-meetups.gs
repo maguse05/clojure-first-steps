@@ -162,12 +162,11 @@ function doPost(e) {
 }
 
 function notifyTeam(answers) {
-  const name = answers[APPLICATION_COLUMNS.proposedName] || 'unnamed';
   MailApp.sendEmail({
     to: TEAM_EMAIL,
     name: 'Clojure Meetups website',
     replyTo: answers[APPLICATION_COLUMNS.email] || '',
-    subject: `New meetup application: ${name}`,
+    subject: 'New Clojure meetup application',
     body: Object.entries(answers).map(([question, answer]) => `${question}\n${answer}`).join('\n\n') +
       `\n\n${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`,
   });

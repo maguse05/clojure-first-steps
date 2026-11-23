@@ -30,13 +30,19 @@
                         (.getBytes (str/lower-case email) "UTF-8"))]
     (str "/lists/" audience "/members/" (format "%032x" (BigInteger. 1 digest)))))
 
-(defn- request [{:keys [api-key api-url]} method path body]
-  @(http/request {:method     method
-                  :url        (str api-url path)
-                  :basic-auth ["clojure-meetups" api-key]
-                  :headers    {"Content-Type" "application/json"}
-                  :body       (json/write-str body)
-                  :timeout    5000}))
+(def ^:private any-merge-fields
+  "The audience is shared and may require merge fields the site doesn't ask
+  for, like a birthday. Mailchimp rejects the member unless told to skip that."
+  {:skip_merge_validation true})
+
+(defn- request [{:keys [api-key api-url]} method path body & [query]]
+  @(http/request {:method       method
+                  :url          (str api-url path)
+                  :query-params query
+                  :basic-auth   ["clojure-meetups" api-key]
+                  :headers      {"Content-Type" "application/json"}
+                  :body         (json/write-str body)
+                  :timeout      5000}))
 
 (defn- ok? [{:keys [status]}]
   (and status (<= 200 status 299)))
@@ -56,7 +62,8 @@
   (let [response (request cfg :post (str "/lists/" audience "/members")
                           {:email_address email
                            :status        "pending"
-                           :tags          [newsletter-tag]})]
+                           :tags          [newsletter-tag]}
+                          any-merge-fields)]
     (cond
       (ok? response)                             :subscribed
       (= "Member Exists" (error-title response)) :already-subscribed
@@ -72,7 +79,8 @@
                                         {:email_address email
                                          :status_if_new "transactional"
                                          :merge_fields  {:FNAME first-name
-                                                         :LNAME (or last-name "")}})]
+                                                         :LNAME (or last-name "")}}
+                                        any-merge-fields)]
     (if-not (ok? upsert)
       (failed "adding an applicant" upsert)
       (let [tagged (request cfg :post (str member "/tags")
