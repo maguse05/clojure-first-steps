@@ -5,22 +5,23 @@
       "name": "Clojure and Functional Programming meetup",
       "organizer": "Gleb Zakharov",
       "country": "Spain",
-      "city": "",
+      "city": "Bilbao, Spain",
       "format": "In-person",
       "frequency": "Monthly",
       "links": [
         "https://www.meetup.com/bilbao-programming-group/events/"
       ],
       "next_meetup": null,
-      "lat": 40.4637,
-      "lng": -3.7492
+      "past_meetups": [],
+      "lat": 43.2634,
+      "lng": -2.9348
     },
     {
       "id": "2026-08-03T22:09:32",
       "name": "Clojurehackers",
       "organizer": "Filipe Welington Vargas de Andrade",
       "country": "BR",
-      "city": "",
+      "city": "UNICAMP, Campinas, Brazil",
       "format": "In-person",
       "frequency": "Bi-monthly",
       "links": [
@@ -28,15 +29,41 @@
         "https://clojurehackers.org/"
       ],
       "next_meetup": null,
-      "lat": 25.9644,
-      "lng": 85.2722
+      "past_meetups": [
+        {
+          "date": "2026-11-14",
+          "title": null,
+          "photos": [
+            "/photos/1-vUbuUlDYELWzulbxJamBz8Yk5UZpWoM.jpg",
+            "/photos/1hFcUfeMf6LOxsV4NRz1EMQhiXjXXdpLt.jpg",
+            "/photos/1DJmRyxc-eN2RNueAEYrjlF_YnLM7Dn80.jpg",
+            "/photos/14W_dSbnzmatZTcg5NRTfBGVfZHyM2Tzt.jpg"
+          ],
+          "links": []
+        },
+        {
+          "date": "2026-10-31",
+          "title": null,
+          "photos": [
+            "/photos/1LIVEFMhvTZwtW6A0Y2IdYSMiH8ytrG_0.jpg",
+            "/photos/1VfnaP6i23UAIyXZaMx6Q0OSa4zMjyRmm.jpg",
+            "/photos/19KsU6pU5h-ntiOvfTrguIzb2aem7t2tf.jpg",
+            "/photos/1FKrwhsKWluKTU7QPSg-fiJii-Flrq6eY.jpg",
+            "/photos/1rFqo7KvwPdtNRuGat5gdjZASy_z3_J8K.jpg",
+            "/photos/1UqMm_uELxt_ocAgsX43oMx4RNUP-HQp2.jpg"
+          ],
+          "links": []
+        }
+      ],
+      "lat": -22.8212,
+      "lng": -47.0607
     },
     {
       "id": "2026-09-14T15:42:35",
       "name": "Clojure BR",
       "organizer": "Arthur Fücher",
       "country": "Brazil",
-      "city": "",
+      "city": "Online for now (we can have in-person in São Paulo and/or Campinas in the future, but right now since I have a newborn I can't promise anything)",
       "format": "Remote",
       "frequency": "Monthly",
       "links": [
@@ -44,6 +71,7 @@
         "https://clojurehackers.org/"
       ],
       "next_meetup": null,
+      "past_meetups": [],
       "lat": -14.235,
       "lng": -51.9253
     },
@@ -52,37 +80,69 @@
       "name": "Clojure Warsaw",
       "organizer": "Daniel Janus",
       "country": "Poland",
-      "city": "",
+      "city": "Warsaw, Poland",
       "format": "In-person",
       "frequency": "Bi-monthly",
       "links": [
         "https://clojure-warsaw.github.io/"
       ],
       "next_meetup": "2027-01-12",
-      "lat": 51.9194,
-      "lng": 19.1451
+      "past_meetups": [
+        {
+          "date": "2026-11-03",
+          "title": "Clojure Warsaw #1",
+          "photos": [
+            "/photos/1Z26Ge7TvxscPBR0t85D8HAFh6PtrrYEN.png",
+            "/photos/1yw7sFgUG_znwu1WUX1NAtWTzynMnbLrL.png",
+            "/photos/1w-OMkt40BkaHh1cAfAhbH7JOItW8DqFu.png"
+          ],
+          "links": []
+        }
+      ],
+      "lat": 52.2297,
+      "lng": 21.0122
     },
     {
       "id": "2026-08-29T12:48:33",
       "name": "Clojure Hangout",
       "organizer": "Fabian Merkle",
       "country": "Thailand",
-      "city": "",
+      "city": "Chiang Mai Thailand",
       "format": "In-person",
       "frequency": "Weekly",
       "links": [
         "https://www.meetup.com/clojure-chiang-mai/events/"
       ],
       "next_meetup": "2026-12-01",
-      "lat": 15.87,
-      "lng": 100.9925
+      "past_meetups": [
+        {
+          "date": "2026-11-19",
+          "title": "Developer Hangout: Code & Coffee Chiang Mai",
+          "photos": [],
+          "links": []
+        },
+        {
+          "date": "2026-11-12",
+          "title": "Developer Hangout",
+          "photos": [],
+          "links": []
+        },
+        {
+          "date": "2026-10-27",
+          "title": "Clojure Hangout",
+          "photos": [],
+          "links": []
+        }
+      ],
+      "lat": 18.7883,
+      "lng": 98.9853
     },
     {
       "id": "2026-09-02T16:56:14",
       "name": "(clj-in-th)",
       "organizer": "Edward Hughes",
       "country": "Thailand",
-      "city": "",
+      "city": "Bangkok, Thailand",
       "format": "Hybrid",
       "frequency": "Bi-weekly",
       "links": [
@@ -90,90 +150,126 @@
         "https://clj-in-th.github.io/"
       ],
       "next_meetup": "2026-11-27",
-      "lat": 15.87,
-      "lng": 100.9925
+      "past_meetups": [
+        {
+          "date": "2026-10-30",
+          "title": "Clojurians in Thailand",
+          "photos": [],
+          "links": []
+        }
+      ],
+      "lat": 13.7563,
+      "lng": 100.5018
     },
     {
       "id": "2026-09-10T15:19:38",
       "name": "Prague Clojure or prgclj",
       "organizer": "Adam Kalisz",
       "country": "Czechia",
-      "city": "",
+      "city": "Prague, Czechia",
       "format": "In-person",
       "frequency": "Almost monthly, with a summer pause (1-2 months) and 1 meetup left out before Christmas",
       "links": [],
       "next_meetup": null,
-      "lat": 49.8175,
-      "lng": 15.473
+      "past_meetups": [],
+      "lat": 50.0755,
+      "lng": 14.4378
     },
     {
       "id": "2026-09-12T02:13:42",
       "name": "Meetup Clojure Floripa",
       "organizer": "Felipe Cortez de Sá",
       "country": "Brazil",
-      "city": "",
+      "city": "Florianópolis, Brazil",
       "format": "In-person",
       "frequency": "Quarterly",
       "links": [],
       "next_meetup": null,
-      "lat": -14.235,
-      "lng": -51.9253
+      "past_meetups": [],
+      "lat": -27.5969,
+      "lng": -48.5468
     },
     {
       "id": "2026-08-03T19:26:27",
       "name": "Santa Cruz Clojure Meetup",
       "organizer": "Arthur Ulfeldt",
       "country": "USA",
-      "city": "",
+      "city": "Santa Cruz CA",
       "format": "In-person",
       "frequency": "Weekly",
       "links": [],
       "next_meetup": null,
-      "lat": 38.7946,
-      "lng": -106.5348
+      "past_meetups": [],
+      "lat": 36.9741,
+      "lng": -122.0288
     },
     {
       "id": "2026-08-18T20:32:25",
       "name": "Clojure Mexico City",
       "organizer": "Kyle S Passarelli",
       "country": "Mexico",
-      "city": "",
+      "city": "Mexico City, Mexico",
       "format": "Hybrid",
       "frequency": "Monthly",
       "links": [],
       "next_meetup": null,
-      "lat": 23.6345,
-      "lng": -102.5528
+      "past_meetups": [],
+      "lat": 19.4326,
+      "lng": -99.1332
     },
     {
       "id": "2026-08-25T19:02:57",
       "name": "New Jersey Clojurians",
       "organizer": "Lorelai Lyons",
       "country": "USA",
-      "city": "",
+      "city": "Suburb/Light City/Different Locations around NJ as much as possible",
       "format": "In-person",
       "frequency": "Quarterly",
       "links": [
         "https://www.heylo.com/event/-P4eW8fYBX8fFxG5M63s?inviteId=4NrYkZED"
       ],
       "next_meetup": null,
-      "lat": 38.7946,
-      "lng": -106.5348
+      "past_meetups": [
+        {
+          "date": "2026-11-20",
+          "title": null,
+          "photos": [
+            "/photos/1bdJyIbEWO8zzs9nl8k2DSpF4lEC2oRrW.png",
+            "/photos/1W_1DV7TT6rp8QhqCWypZRAwRgGZjyAcO.png",
+            "/photos/1H9hj4MfodAliAjgh05u0z1qS7zS9wfUw.png",
+            "/photos/1g3Xs_Y2M-W8Xq85mheIISuFgXnJ3Sjv0.png"
+          ],
+          "links": []
+        }
+      ],
+      "lat": 40.0583,
+      "lng": -74.4057
     },
     {
       "id": "2026-08-26T08:13:15",
       "name": "clj-aus",
       "organizer": "Burin Choomnuan",
       "country": "Australia",
-      "city": "",
+      "city": "Sydney Australia",
       "format": "Hybrid",
       "frequency": "Monthly",
       "links": [
         "https://clj-aus.github.io/"
       ],
       "next_meetup": null,
-      "lat": -25.2744,
-      "lng": 133.7751
+      "past_meetups": [
+        {
+          "date": "2026-11-24",
+          "title": null,
+          "photos": [
+            "/photos/13oTCDSx3aCt_2Yry0F0bSDZosPQFP7Im.png",
+            "/photos/1akHkOjKxEDAB-9pUNeywah8hJquyhVLG.png"
+          ],
+          "links": []
+        }
+      ],
+      "lat": -33.8623,
+      "lng": 151.2077
     }
   ]
 }
