@@ -77,7 +77,13 @@
       (is (= "Chiang Mai Meetup" (:name (first (listed [(assoc row :name "TBC")] [details])))))
       (let [[m] (listed [(assoc row :name "" :city "Lima")] [])]
         (is (= "Lima Meetup" (:name m)))
-        (is (= "lima-meetup" (:slug m)))))
+        (is (= "lima-meetup" (:slug m))))
+      (is (= "Chiang Mai Meetup" (:name (first (listed [(assoc row :name " tbc ")] [])))))
+      (is (= "Johannesburg Meetup"
+             (:name (first (listed [(assoc row :name "TBC" :country "South Africa" :city "Johannesburg, South Africa")] []))))
+          "just the city, not the region or country after it")
+      (is (= "Luxembourg Meetup"
+             (:name (first (listed [(assoc row :name "TBC" :country "Luxembourg" :city "Luxembourg (Kirchberg)")] []))))))
 
     (testing "details for another application don't apply"
       (is (= "Chiang Mai Thailand" (:city (first (listed [row] [(assoc details :applied-at "2026-01-01T00:00:00")]))))))

@@ -12,7 +12,7 @@
    "format"              "Hybrid"
    "frequency"           "Monthly"
    "description"         "Talks and coding sessions"
-   "website-description" "Monthly talks and coding sessions in Lima."
+   "meetup-description" "Monthly talks and coding sessions in Lima."
    "channels"            "Clojurians Slack channel"
    "experience"          "3"
    "commitment"          application/commitments})

@@ -74,13 +74,24 @@
 (defn- tbc? [s]
   (or (str/blank? s) (= "tbc" (str/lower-case (str/trim s)))))
 
+(defn- city-alone
+  "The city as organizers wrote it, without the region or country after it:
+  \"Johannesburg, South Africa\" and \"Chiang Mai Thailand\" give
+  \"Johannesburg\" and \"Chiang Mai\"."
+  [city country]
+  (let [city    (str/trim (first (str/split (str city) #"[,(]")))
+        country (str " " (countries/normalize country))]
+    (if (str/ends-with? (countries/normalize city) country)
+      (str/trim (subs city 0 (- (count city) (count country))))
+      city)))
+
 (defn- with-details
   "Names, descriptions and links always come from the sheet. Until the final
   name is set, the meetup goes by its city."
   [row details today]
-  (let [{:keys [name city organizer] :as meetup}
+  (let [{:keys [name city country organizer] :as meetup}
         (merge row (dissoc details :name :description :links :next-event))
-        name (if (tbc? name) (str city " Meetup") name)]
+        name (if (tbc? name) (str (city-alone city country) " Meetup") name)]
     (assoc meetup
            :name       name
            :slug       (or (:slug details)
