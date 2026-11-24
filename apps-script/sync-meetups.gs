@@ -9,7 +9,8 @@
  * no emails, scores, grants or review notes. Post-Event Reports are matched to
  * a meetup by organizer, on email when the report has one, otherwise on name.
  * The latest one gives the next meetup date, and each one a past meetup with
- * its title, recording and blog post.
+ * its title, recording, blog post and the links shared in the summary. Only
+ * the links are published, not the summary itself.
  *
  * Photos come from the past meetups folder in Drive: one folder per meetup,
  * named like the meetup, with a folder per date ("Nov 24, 2026" or
@@ -78,6 +79,7 @@ const REPORT_COLUMNS = {
   title: 'Meetup Name',
   blog: 'If a blog post was written about the Meetup',
   recording: 'If the Meetup was recorded',
+  summary: 'Briefly describe what was covered in the meetup',
 };
 
 function setUp() {
@@ -255,7 +257,8 @@ function pastMeetups(reports, folder, zones, photos) {
       meetup.title = clean(report.title) || meetup.title;
       meetup.links.push(
         ...report.recording.map(url => ({ title: 'Recording', url })),
-        ...report.blog.map(url => ({ title: 'Blog post', url })));
+        ...report.blog.map(url => ({ title: 'Blog post', url })),
+        ...linksIn(report.summary));
     });
 
   if (folder) {
@@ -387,6 +390,19 @@ function docLinks(file) {
         title: (urlsIn(text).length ? before : text) || null,
         url: withoutGoogleRedirect(htmlText(link[1])),
       };
+    }));
+}
+
+/**
+ * The links in a text, titled by what precedes them on their line, so
+ * "From Happy Paths to Oracles – https://..." is titled "From Happy Paths to
+ * Oracles".
+ */
+function linksIn(text) {
+  return String(text || '').split('\n').flatMap(line =>
+    urlsIn(line).map(url => {
+      const before = line.slice(0, line.indexOf(url)).split(/https?:\/\/\S+/).pop();
+      return { title: clean(before).replace(/[\s:\-\u2013\u2014]+$/, '') || null, url };
     }));
 }
 

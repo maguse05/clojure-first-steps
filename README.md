@@ -52,8 +52,9 @@ only exports public fields, plus:
 
 - the URLs in "Generic Meetup Link" (`TBC` or blank means no link yet),
 - the next meetup date from the organizer's latest Post-Event Report,
-- past meetups: date, title, recording and blog post from each report, plus
-  the photos and links in the meetup's Drive folder,
+- past meetups: date, title, recording, blog post and the links in the
+  summary of each report, plus the photos and links in the meetup's Drive
+  folder,
 - coordinates for the map, from the city and country.
 
 Names come from "Final Meetup name"; while it's `TBC` or blank, the meetup
