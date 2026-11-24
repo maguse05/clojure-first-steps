@@ -43,7 +43,7 @@
               :placeholder "e.g. 10-20"}
              {:id :description :label "Briefly describe your proposed meetup format" :type :textarea
               :hint "e.g. talks, workshops, coding sessions" :required? true :wide? true}
-             {:id :website-description :label "Describe your meetup for the website" :type :textarea
+             {:id :meetup-description :label "Describe your meetup for the website" :type :textarea
               :hint "Shown on your meetup's page once it's approved: what you do, who it's for, what to expect."
               :required? true :wide? true}
              {:id :promotion :label "How and where do you plan to promote the meetup locally to attract new members?"

@@ -67,7 +67,7 @@ const APPLICATION_COLUMNS = {
   approved: 'Sponsorship Setup?',
   links: 'Generic Meetup Link',
   proposedName: 'Name of the Clojure Meetup?',
-  description: 'Website description',
+  description: 'Meetup description',
 };
 
 const REPORT_COLUMNS = {

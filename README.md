@@ -58,7 +58,7 @@ only exports public fields, plus:
 - coordinates for the map, from the city and country.
 
 Names come from "Final Meetup name"; while it's `TBC` or blank, the meetup
-shows up as "<city> Meetup". The About text comes from "Website description",
+shows up as "<city> Meetup". The About text comes from "Meetup description",
 written by the organizers: the site's form asks for it, and for older
 applications the team pastes what organizers send. A blank line starts a new
 paragraph; without a description the page has no About section. `resources/meetups.edn` adds what a form answer

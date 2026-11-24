@@ -24,7 +24,7 @@
    :location            "Where do you plan to hold the meetup?"
    :expected-attendance "How many people do you anticipate attending a typical meetup?"
    :description         "Briefly describe your proposed meetup format (e.g., talks, workshops, coding sessions)."
-   :website-description "Website description"
+   :meetup-description  "Meetup description"
    :promotion           "How and where do you plan to promote the meetup locally to attract new members?"
    :channels            "Which communication channels do you plan to use for ongoing communication with meetup members (beyond promotion)?"
    :monthly-support     "Expected monthly support"
