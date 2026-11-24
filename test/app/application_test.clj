@@ -3,18 +3,19 @@
             [clojure.test :refer [deftest is testing]]))
 
 (def ^:private valid-params
-  {"full-name"       "Ana Silva"
-   "email"           "ana@example.com"
-   "nubank-employee" "No"
-   "meetup-name"     "Clojure Lima"
-   "country"         "Peru"
-   "city"            "Lima"
-   "format"          "Hybrid"
-   "frequency"       "Monthly"
-   "description"     "Talks and coding sessions"
-   "channels"        "Clojurians Slack channel"
-   "experience"      "3"
-   "commitment"      application/commitments})
+  {"full-name"           "Ana Silva"
+   "email"               "ana@example.com"
+   "nubank-employee"     "No"
+   "meetup-name"         "Clojure Lima"
+   "country"             "Peru"
+   "city"                "Lima"
+   "format"              "Hybrid"
+   "frequency"           "Monthly"
+   "description"         "Talks and coding sessions"
+   "website-description" "Monthly talks and coding sessions in Lima."
+   "channels"            "Clojurians Slack channel"
+   "experience"          "3"
+   "commitment"          application/commitments})
 
 (deftest parse-test
   (let [values (application/parse (assoc valid-params "full-name" "  Ana Silva  "))]

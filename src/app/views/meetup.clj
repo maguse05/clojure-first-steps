@@ -1,5 +1,6 @@
 (ns app.views.meetup
   (:require [app.views.helpers :as helpers]
+            [clojure.string :as str]
             [app.views.layout :as layout]
             [app.views.map :as meetup-map]))
 
@@ -65,9 +66,11 @@
         (helpers/format-badge (:format meetup))]
        [:div.meetup-layout
         [:div
-         [:section
-          [:h2 "About"]
-          [:p.description (:description meetup)]]
+         (when-let [description (:description meetup)]
+           [:section
+            [:h2 "About"]
+            (for [paragraph (str/split description #"\n\n")]
+              [:p.description paragraph])])
          (when-let [links (seq (:links meetup))]
            [:section
             [:h2 "Links"]

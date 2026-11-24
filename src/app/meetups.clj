@@ -45,7 +45,7 @@
                  links)})
 
 (defn- from-sheet
-  [{:keys [id name organizer country city format frequency links next-meetup past-meetups lat lng]}]
+  [{:keys [id name organizer country city format frequency description links next-meetup past-meetups lat lng]}]
   (cond-> {:applied-at   id
            :name         name
            :organizer    organizer
@@ -53,6 +53,7 @@
            :city         city
            :format       (formats (str/lower-case (str format)) :in-person)
            :frequency    frequency
+           :description  (not-empty description)
            :links        (mapv link links)
            :past-meetups (mapv past-meetup past-meetups)}
     next-meetup (assoc :next-event {:date next-meetup})
@@ -74,10 +75,11 @@
   (or (str/blank? s) (= "tbc" (str/lower-case (str/trim s)))))
 
 (defn- with-details
-  "Names and links always come from the sheet. Until the final name is set,
-  the meetup goes by its city."
+  "Names, descriptions and links always come from the sheet. Until the final
+  name is set, the meetup goes by its city."
   [row details today]
-  (let [{:keys [name city organizer] :as meetup} (merge row (dissoc details :name :links :next-event))
+  (let [{:keys [name city organizer] :as meetup}
+        (merge row (dissoc details :name :description :links :next-event))
         name (if (tbc? name) (str city " Meetup") name)]
     (assoc meetup
            :name       name
