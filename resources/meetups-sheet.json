@@ -8,7 +8,7 @@
       "city": "Bilbao, Spain",
       "format": "In-person",
       "frequency": "Monthly",
-      "description": "A monthly in-person meetup in Bilbao with coding sessions and a book and papers club on Clojure and functional programming, run as part of the Bilbao Programming Group.",
+      "description": "",
       "links": [
         "https://www.meetup.com/bilbao-programming-group/events/"
       ],
@@ -25,7 +25,7 @@
       "city": "UNICAMP, Campinas, Brazil",
       "format": "In-person",
       "frequency": "Bi-monthly",
-      "description": "A Clojure hackerspace in Campinas to share ideas about Clojure and functional programming. Every two months, on a Saturday, people meet at UNICAMP for up to two and a half hours of talks, workshops and hands-on sessions led by whoever wants to share what they know. UNICAMP students can earn extension-hour credits by taking part.",
+      "description": "",
       "links": [
         "https://www.meetup.com/pt-br/clojure-br/events/",
         "https://clojurehackers.org/"
@@ -68,7 +68,7 @@
       "city": "Online for now (we can have in-person in São Paulo and/or Campinas in the future, but right now since I have a newborn I can't promise anything)",
       "format": "Remote",
       "frequency": "Monthly",
-      "description": "Monthly online talks for the Brazilian Clojure community. The group has run other formats before and wants to bring them back, including in-person meetups in São Paulo or Campinas.",
+      "description": "",
       "links": [
         "https://www.meetup.com/pt-br/clojure-br/events/",
         "https://clojurehackers.org/"
@@ -86,7 +86,7 @@
       "city": "Warsaw, Poland",
       "format": "In-person",
       "frequency": "Bi-monthly",
-      "description": "Every two months in Warsaw: about an hour of talks followed by discussion and a couple of hours of informal socialising.",
+      "description": "",
       "links": [
         "https://clojure-warsaw.github.io/"
       ],
@@ -114,7 +114,7 @@
       "city": "Chiang Mai Thailand",
       "format": "In-person",
       "frequency": "Weekly",
-      "description": "A weekly developer hangout in Chiang Mai for coding sessions, demos and tech discussions over coffee. Past topics include contributing to open source and setting up NixOS.",
+      "description": "",
       "links": [
         "https://www.meetup.com/clojure-chiang-mai/events/"
       ],
@@ -150,7 +150,7 @@
       "city": "Bangkok, Thailand",
       "format": "Hybrid",
       "frequency": "Bi-weekly",
-      "description": "A hybrid meetup for Clojurians in Thailand, every two weeks. It starts with small workshops and coding sessions that show what Clojure can do and help newcomers get going with the standard tooling, with guest speakers, code jams and seminars to come as the community grows. In the long run, the group wants to turn its sessions into Clojure resources in Thai.",
+      "description": "",
       "links": [
         "https://clj-in-th.github.io",
         "https://clj-in-th.github.io/"
@@ -175,7 +175,7 @@
       "city": "Prague, Czechia",
       "format": "In-person",
       "frequency": "Almost monthly, with a summer pause (1-2 months) and 1 meetup left out before Christmas",
-      "description": "Talks and mastermind sessions in Prague, almost every month, with a summer break and no meetup right before Christmas. Also known as prgclj.",
+      "description": "",
       "links": [],
       "next_meetup": null,
       "past_meetups": [],
@@ -190,7 +190,7 @@
       "city": "Florianópolis, Brazil",
       "format": "In-person",
       "frequency": "Quarterly",
-      "description": "A quarterly meetup in Florianópolis: two 30-minute talks, 20 minutes of discussion, then a coffee break.",
+      "description": "",
       "links": [],
       "next_meetup": null,
       "past_meetups": [],
@@ -205,7 +205,7 @@
       "city": "Santa Cruz CA",
       "format": "In-person",
       "frequency": "Weekly",
-      "description": "A weekly Clojure coffee hangout in Santa Cruz that has been running for more than ten years.",
+      "description": "",
       "links": [],
       "next_meetup": null,
       "past_meetups": [],
@@ -220,7 +220,7 @@
       "city": "Mexico City, Mexico",
       "format": "Hybrid",
       "frequency": "Monthly",
-      "description": "A monthly hybrid meetup in Mexico City: talks by Clojurians from around the community, live or recorded, followed by Q&A with the speakers, plus in-person presentations when speakers are in town. A relaxed place to learn, meet people and see what's being built with Clojure.",
+      "description": "",
       "links": [],
       "next_meetup": null,
       "past_meetups": [],
@@ -235,7 +235,7 @@
       "city": "Suburb/Light City/Different Locations around NJ as much as possible",
       "format": "In-person",
       "frequency": "Quarterly",
-      "description": "Quarterly Scicloj-style meetups around New Jersey where people talk about what they're working on. Each one starts with time to mingle, then one or two speakers with Q&A, open discussion and a hangout afterwards.",
+      "description": "",
       "links": [
         "https://www.heylo.com/event/-P4eW8fYBX8fFxG5M63s?inviteId=4NrYkZED"
       ],
@@ -264,7 +264,7 @@
       "city": "Sydney Australia",
       "format": "Hybrid",
       "frequency": "Monthly",
-      "description": "Australia's Clojure meetup: monthly and hybrid, with an in-person session in Sydney streamed to the rest of the country. Each session pairs one or two talks with social time, from language and tooling deep dives and production experience reports to beginner-friendly intros for developers coming from Java, Python or JavaScript, and talk months alternate with hands-on coding sessions. It covers the wider Clojure family too: ClojureScript, ClojureDart, Babashka and jank.",
+      "description": "",
       "links": [
         "https://clj-aus.github.io/"
       ],
