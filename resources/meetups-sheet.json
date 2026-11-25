@@ -18,6 +18,51 @@
       "lng": -2.9348
     },
     {
+      "id": "2026-08-10T16:35:54",
+      "name": "London Clojurians",
+      "organizer": "Bruno Bonacci",
+      "country": "UK",
+      "city": "London (in-person) + Remote talks",
+      "format": "Hybrid",
+      "frequency": "Bi-weekly",
+      "description": "A community of more than 4,000 members that has organised over 700 events, with 100+ talks on YouTube. In-person meetups are usually coding sessions, and online talks bring speakers and attendees from all over the world. The group also organises reClojure.",
+      "links": [
+        "https://www.meetup.com/london-clojurians/events/"
+      ],
+      "next_meetup": "2027-01-12",
+      "past_meetups": [
+        {
+          "date": "2026-11-17",
+          "title": "London Clojurians",
+          "photos": [],
+          "links": [
+            {
+              "title": "Recording",
+              "url": "https://www.youtube.com/watch?v=sa3yKUWSdjk"
+            },
+            {
+              "title": null,
+              "url": "https://www.meetup.com/london-clojurians/events/317380055/"
+            },
+            {
+              "title": null,
+              "url": "https://clojureverse.org/t/london-clojurians-talk-programming-a-business-to-improve-itself-by-christian-weilbach/15034/2"
+            },
+            {
+              "title": null,
+              "url": "https://www.reddit.com/r/Clojure/comments/1xter0j/london_clojurians_talk_programming_a_business_to/"
+            },
+            {
+              "title": null,
+              "url": "https://github.com/whilo/simmis/"
+            }
+          ]
+        }
+      ],
+      "lat": 51.5072,
+      "lng": -0.1276
+    },
+    {
       "id": "2026-08-03T22:09:32",
       "name": "Clojurehackers",
       "organizer": "Filipe Welington Vargas de Andrade",
