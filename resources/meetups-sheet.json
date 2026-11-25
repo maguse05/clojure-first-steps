@@ -230,7 +230,9 @@
       "format": "Hybrid",
       "frequency": "Monthly",
       "description": "A monthly hybrid meetup in Mexico City: talks by Clojurians from around the community, live or recorded, followed by Q&A with the speakers, plus in-person presentations when speakers are in town. A relaxed place to learn, meet people and see what's being built with Clojure.",
-      "links": [],
+      "links": [
+        "https://clojure-cdmx.github.io/"
+      ],
       "next_meetup": null,
       "past_meetups": [],
       "lat": 19.4326,
