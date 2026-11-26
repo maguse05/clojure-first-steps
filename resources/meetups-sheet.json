@@ -119,7 +119,14 @@
         "https://clojurehackers.org/"
       ],
       "next_meetup": null,
-      "past_meetups": [],
+      "past_meetups": [
+        {
+          "date": "2026-11-25",
+          "title": "Clojure BR",
+          "photos": [],
+          "links": []
+        }
+      ],
       "lat": -14.235,
       "lng": -51.9253
     },
